@@ -50,7 +50,7 @@ void IntroOptix::initOutputBuffer()
 void IntroOptix::initRayGenProgram()
 {
   m_rayGenProgram = m_context->createProgramFromPTXString(
-    raygen_ptx_c, "rayGenProgram");
+      raygen_ptx_c, "rayGenProgram");
   m_context->setRayGenerationProgram(0, m_rayGenProgram);
   m_context["numSamples"]->setInt(m_Ns);
   m_context["maxRayDepth"]->setInt(m_maxRayDepth);
@@ -59,7 +59,7 @@ void IntroOptix::initRayGenProgram()
 void IntroOptix::initMissProgram()
 {
   m_missProgram = m_context->createProgramFromPTXString(
-    miss_ptx_c, "missProgram");
+      miss_ptx_c, "missProgram");
   m_context->setMissProgram(0, m_missProgram);
 }
 
@@ -73,20 +73,20 @@ void IntroOptix::renderFrame()
   m_context->validate();
   m_context->launch(0,         // Program ID
                     m_Nx, m_Ny // Launch Dimensions
-    );
+  );
 }
 
 void IntroOptix::printPPM()
 {
-  void* bufferData = m_outputBuffer->map();
+  void *bufferData = m_outputBuffer->map();
   //   Print ppm header
-  std::cout << "P3\n" << m_Nx << " " << m_Ny << "\n255\n";
+  std::cout << m_Nx << " " << m_Ny << std::endl;
   //   Parse through bufferdata
-  for (int j = m_Ny - 1; j >= 0;  j--)
+  for (int j = m_Ny - 1; j >= 0; j--)
   {
     for (int i = 0; i < m_Nx; i++)
     {
-      float* floatData = ((float*)bufferData) + (3*(m_Nx*j + i));
+      float *floatData = ((float *)bufferData) + (3 * (m_Nx * j + i));
       float r = floatData[0];
       float g = floatData[1];
       float b = floatData[2];

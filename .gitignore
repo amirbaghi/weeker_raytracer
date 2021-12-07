@@ -37,3 +37,6 @@
 .cuda-gdbinit
 CMakeCache.txt
 /CMakeFiles/
+/src/CMakeLists.txt
+.vscode/
+CMakeLists.txt

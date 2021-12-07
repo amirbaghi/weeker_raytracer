@@ -11,9 +11,9 @@ project ( RTWeekend
   )
 
 # set to match your path
-set(OptiX_INSTALL_DIR "/usr/local/nvidia/NVIDIA-OptiX-SDK-6.5.0-linux64/"
+set(OptiX_INSTALL_DIR "/home/mohamad/Downloads/NVIDIA-OptiX-SDK-6.5.0-linux64"
   CACHE PATH "Path to OptiX installed location.")
-
+#
 # Set to c++11
 set ( CMAKE_CXX_STANDARD 11 )
 
